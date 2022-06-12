@@ -10,9 +10,7 @@ void jack_bauer(void);
 void times_table(void);
 int add(int, int);
 void print_to_98(int n);
-#ifndef MAIN_INCLUDED
-#define MAIN_INCLUDED
-#endif
+void print_times_table(int n);
 #ifndef MAIN_INCLUDED
 #define MAIN_INCLUDED
 #endif
