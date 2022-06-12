@@ -13,3 +13,6 @@ void print_to_98(int n);
 #ifndef MAIN_INCLUDED
 #define MAIN_INCLUDED
 #endif
+#ifndef MAIN_INCLUDED
+#define MAIN_INCLUDED
+#endif
