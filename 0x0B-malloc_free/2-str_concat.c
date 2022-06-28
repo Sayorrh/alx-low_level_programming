@@ -3,34 +3,54 @@
 #include <stdlib.h>
 
 /**
- *  * create_array - function that creates an array of chars
- *   * and initializes it with a specific char
- *    *
- *     * @c: array of chars
- *      * @size: the size of the memory to print
- *       *
- *        * Return: address of the memory to print
- *         */
+ *  * str_concat - function that concatenates two strings
+ *   *
+ *    * @s1: string of chars
+ *     * @s2: string of chars
+ *      *
+ *       * Return: address of the newly allocated memory
+ *        */
 
-char *create_array(unsigned int size, char c)
+char *str_concat(char *s1, char *s2)
 {
-		unsigned int i;
-			char *pArray;
+		unsigned int len1, len2;
+			unsigned int i, j;
+				char *str_copy;
+					char *tmp1 = s1;
+						char *tmp2 = s2;
 
-				if (size == 0)
-							return (NULL);
+							if (s1 == NULL)
+										s1 = "";
+								if (s2 == NULL)
+											s2 = "";
 
-				/* returns a pointer to the allocated memory */
-					pArray = malloc(size * sizeof(char));
+									i = 0;
+										while (*s1++)
+													i++;
+											len1 = i;
+												s1 = tmp1;
 
-						if (pArray == NULL)
-									return (NULL);
+													i = 0;
+														while (*s2++)
+																	i++;
+															len2 = i;
+																s2 = tmp2;
 
-							i = 0;
-								while (i < size)
-										{
-													pArray[i] = c;
-															i++;
-																}
-									return (pArray);
+																	str_copy = malloc((len1 + len2) * sizeof(char) + 1);
+																		if (str_copy == NULL)
+																					return (NULL);
+
+																			j = 0;
+																				while (j < len1)
+																						{
+																									str_copy[j] = s1[j];
+																											j++;
+																												}
+																					while (j < len1 + len2)
+																							{
+																										str_copy[j] = s2[j - len1];
+																												j++;
+																													}
+																						str_copy[j] = '\0';
+																							return (str_copy);
 }
